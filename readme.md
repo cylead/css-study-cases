@@ -4,5 +4,5 @@
 
 参考资料：
 
-1. https://www.bilibili.com/video/BV1nY41147y6?p=4
+1. https://www.bilibili.com/video/BV1nY41147y6
 2. https://space.bilibili.com/432444813
