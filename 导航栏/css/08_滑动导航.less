@@ -1,0 +1,55 @@
+body {
+	box-sizing: border-box;
+}
+nav {
+	position: relative;
+	// 注意 z-index 要在父子元素里分别设置，不要再同级的 div 和 bg 里设置
+	z-index: 0;
+
+	// display: flex;
+	// justify-content: between;
+
+	width: 400px;
+	height: 50px;
+	list-style: none;
+	background-color: #888;
+
+	div {
+		float: left;
+
+		width: 100px;
+		line-height: 50px;
+
+		text-align: center;
+		a {
+			color: white;
+			text-decoration: none;
+		}
+		transition: all 0.5s ease;
+	}
+
+	.bg {
+		z-index: -1;
+		position: absolute;
+		left: 0px;
+
+		width: 100px;
+		height: 50px;
+		background-color: rgb(231, 93, 29);
+	}
+
+	div:nth-child(2):hover ~ .bg {
+		left: 100px;
+	}
+
+	div:nth-child(3):hover ~ .bg {
+		left: 200px;
+	}
+
+	div:nth-child(4):hover ~ .bg {
+		left: 300px;
+	}
+}
+nav.hover {
+	cursor: pointer;
+}

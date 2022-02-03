@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.return {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  display: none;
+  height: 80px;
+  line-height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: #fff;
+  text-align: center;
+}
+.return:hover {
+  cursor: pointer;
+}
+.content {
+  height: 100px;
+}
+.content:nth-child(odd) {
+  background-color: darkblue;
+}
+.content:nth-child(even) {
+  background-color: grey;
+}

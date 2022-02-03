@@ -1,0 +1,28 @@
+.box {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin-left: 200px;
+  background-color: lightblue;
+  overflow: hidden;
+}
+.box .bottom {
+  text-align: center;
+  line-height: 100px;
+}
+.box .cover {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 100px;
+  background-color: darkblue;
+  text-align: center;
+  color: white;
+  transform: rotate(90deg);
+  transform-origin: -50% 50%;
+  transition: 300ms ease;
+}
+.box:hover .cover {
+  transform: rotate(0deg);
+}

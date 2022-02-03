@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/05_返回顶部.css" />
+	</head>
+	<body>
+		<div class="return">返回顶部</div>
+
+		<div class="content">1</div>
+		<div class="content">2</div>
+		<div class="content">3</div>
+		<div class="content">4</div>
+		<div class="content">5</div>
+		<div class="content">6</div>
+		<div class="content">7</div>
+		<div class="content">8</div>
+		<div class="content">9</div>
+		<div class="content">10</div>
+	</body>
+
+	<script>
+		const returnTop = document.querySelector(".return");
+		returnTop.onclick = () => {
+			document.documentElement.scrollTop = 0;
+		};
+		window.onscroll = () => {
+			if (document.documentElement.scrollTop > 100) {
+				returnTop.style.display = "block";
+			} else {
+				returnTop.style.display = "none";
+			}
+		};
+	</script>
+</html>

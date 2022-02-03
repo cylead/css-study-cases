@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/06_放大镜效果.css" />
+	</head>
+	<body>
+		<div id="s_container">
+			<img id="s_img" src="./img/oneplus.jpg" alt="" />
+			<div id="zoom"></div>
+		</div>
+		<div id="l_container">
+			<img id="l_img" src="./img/oneplus.jpg" alt="" />
+		</div>
+
+		<script type="text/javascript">
+			const sDiv = document.getElementById("s_container");
+			const lDiv = document.getElementById("s_container");
+			const sImg = document.getElementById("s_img");
+			const lImg = document.getElementById("l_img");
+			const zoom = document.getElementById("zoom");
+			console.log(sDiv);
+
+			sDiv.onmousemove = function (e) {
+				let left = e.pageX - sImg.offsetLeft - 50;
+				if (left < 0) {
+					left = 0;
+				}
+				if (left > 100) {
+					left = 100;
+				}
+
+				let top = e.pageY - sImg.offsetTop - 50;
+
+				if (top < 0) {
+					top = 0;
+				}
+				if (top > 100) {
+					top = 100;
+				}
+
+				zoom.style.left = left + "px";
+				zoom.style.top = top + "px";
+
+				lImg.style.left = -4 * left + "px";
+				lImg.style.top = -4 * top + "px";
+			};
+
+			sDiv.onmouseout = function () {
+				zoom.style.display = "none";
+				lImg.style.display = "none";
+			};
+
+			sDiv.onmouseover = function (e) {
+				zoom.style.display = "block";
+				lImg.style.display = "block";
+			};
+		</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.red {
+  width: 100%;
+  height: 500px;
+  background-color: #a00;
+}
+.blue {
+  width: 100%;
+  height: 500px;
+  background-color: #00a;
+}
+.box {
+  position: fixed;
+  left: -50px;
+  top: 50vh;
+  transform: translateY(-50%);
+  height: 100px;
+  width: 100px;
+  background-color: #aaa;
+  transition: left 0.5s ease;
+}
+.box:hover {
+  left: 0;
+  cursor: pointer;
+}
