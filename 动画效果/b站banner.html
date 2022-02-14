@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/b站banner.css" />
+	</head>
+	<body>
+		<div class="banner">
+			<div class="image">
+				<img src="../img/bilibili/bg.png" />
+			</div>
+			<div class="image">
+				<img src="../img/bilibili/girl1.png" />
+			</div>
+			<div class="image">
+				<img src="../img/bilibili/grassland.png" />
+			</div>
+			<div class="image">
+				<img src="../img/bilibili/mushroom.png" />
+			</div>
+			<div class="image">
+				<img src="../img/bilibili/spirit.png" />
+			</div>
+			<div class="image">
+				<img src="../img/bilibili/leaf.png" />
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		const banner = document.querySelector(".banner");
+		const image = document.querySelectorAll(".image");
+		// 初始化 transform 和 blur 数据
+		const init_t_b = [
+			{ t: 0, b: 2 },
+			{ t: 0, b: 0 },
+			{ t: 0, b: 1 },
+			{ t: 0, b: 2 },
+			{ t: 0, b: 3 },
+			{ t: 0, b: 3 },
+		];
+		let new_t_b = init_t_b;
+		// 修改样式的函数
+		const changeStyle = (t_b) => {
+			t_b.forEach((item, index) => {
+				image[
+					index
+				].children[0].style = `transform: translate(${item.t}px); filter: blur(${item.b}px)`;
+				// console.log(image[index].children[0]);
+			});
+		};
+
+		let x = 0,
+			x_new = 0,
+			x_int = 0;
+		const unit = 100;
+		banner.onmouseover = (e) => {
+			x = e.clientX;
+			console.log(x);
+		};
+		// 移动和模糊效果
+		banner.onmousemove = (e) => {
+			x_new = e.clientX;
+			x_int = x_new - x;
+			if (x_int > unit || x_int < -unit) {
+				new_t_b = new_t_b.map((item) => {
+					return {
+						t: item.t + parseInt((x_int / unit) * 2),
+						b: Math.max(0, item.b + parseInt(x_int / unit) * 0.4),
+					};
+				});
+				x = x_new;
+				changeStyle(new_t_b);
+			}
+		};
+		banner.onmouseleave = () => {
+			x = 0;
+			changeStyle(init_t_b);
+		};
+
+		// 眨眼效果
+		let timeout = 3000;
+		let blink_num = 1;
+		const blink = () => {
+			if (blink_num === 4) {
+				blink_num = 1;
+				timeout = 3000;
+			} else {
+				blink_num += 1;
+				timeout = 50;
+			}
+
+			image[1].children[0].src = `../img/bilibili/girl${blink_num}.png`;
+			setTimeout(() => {
+				blink();
+			}, timeout);
+		};
+
+		window.onload = () => {
+			blink();
+		};
+	</script>
+</html>
