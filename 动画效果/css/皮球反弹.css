@@ -1,0 +1,39 @@
+@keyframes bounce {
+  60%,
+  80%,
+  to {
+    transform: translateY(400px);
+    animation-timing-function: ease;
+  }
+  70% {
+    transform: translateY(300px);
+  }
+  90% {
+    transform: translateY(360px);
+  }
+}
+.ball {
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(0, 100, 100, 0.5);
+  animation: bounce 3s cubic-bezier(0.58, 0.13, 0.94, 0.64);
+}
+@keyframes heartbeat {
+  from,
+  to {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+.heart {
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(172, 2, 2, 0.8);
+  animation: heartbeat 1s ease-in-out infinite;
+}
